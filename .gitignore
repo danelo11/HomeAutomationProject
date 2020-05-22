@@ -1,8 +1,8 @@
-#variables de entorno
+# Variables de entorno
 .env
 
-#Node js
+# Node js
 node_modules
 
-#Fruto de hacer npm
+# Fruto de hacer npm
 package-lock.json
