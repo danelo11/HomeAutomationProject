@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <!--Boostrap4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Icons -->
+        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <!--CSS-->
+        <link rel="stylesheet" href="css/estilos.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Main Page">
+        <meta name="author" content="Danelo">
+        <title>Main Page</title>
+    </head>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <h1 class="navbar-brand col-sm-3 col-md-3 mr-0" >Home Automation Project</h1>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <div class="container-logout">
+                    <input type="button" value="Logout">
+                </div>
+            </li>
+        </ul>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <span data-feather="smartphone"></span>
+                        Sensores
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <span data-feather="activity"></span>
+                        Monitorización
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <span data-feather="users"></span>
+                        Usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="settings"></span>
+                            Configuración
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+                </nav>
+            </div>
+        </div>     
+
+        
+        <script>
+        feather.replace()
+        </script>
+    <body>
+        <main class="container p-5">
+            
+            {{{ body }}}
+            
+        </main>
+        
+    </body>     
+</html>

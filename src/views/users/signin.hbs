@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Pantalla de Inicio</title>
+      <link rel="stylesheet" href="../css/estilos.css">
+    </head>
+    <div class="contenedor">
+      <div class="cont-login">
+        <img src="../images/logo.png" class="avatar" alt="Imagen Icono">
+        <h1>Login Here</h1>
+        <form action="/users/signin" method="POST">
+          <!-- USERNAME INPUT -->
+          <label for="username">Email</label>
+          <input type="email" name="email" placeholder="Enter Email">
+          <!-- PASSWORD INPUT -->
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Enter Password">
+          <div class="form-group">
+            <button type="submit" class="btn btn-block" name="login">LogIn</button><br></br>
+          </div>
+          <a href="/users/signup">Sign Up</a>
+        </form>
+      </div>
+    </div> 
+  
+</html>

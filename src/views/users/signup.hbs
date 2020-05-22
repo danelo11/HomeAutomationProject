@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pantalla de Registro</title>
+        <!--Requerir Boostrap 4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/estilos.css">
+    </head>
+    <div id="degradado">
+            <div class="col-md-4 mx-auto" style="top: 100px;">
+                <div class="card">
+                    <div class="card-header">
+                        Formulario registro
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/signup" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confpassword" placeholder="Confirm Password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block" style="height: 42px;">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</html>
