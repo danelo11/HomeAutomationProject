@@ -5,6 +5,7 @@ const handlebars = require('express-handlebars');
 const methods = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 //Initialitations
 const app = express();
@@ -16,7 +17,7 @@ app.set('port', process.env.PORT || 5000); //contemplando la opcion del servidor
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', handlebars({
     defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views'), 'layouts', ),
+    layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs' 
 }));
@@ -32,9 +33,17 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
+//Global variables
+app.use(function(request, response, next){
+    response.locals.success_msg=request.flash('sucess_msg');
+    response.locals.error_msg=request.flash('error_msg')
+    next();
+})
+
 
 //Routes
-app.use(require('./routes/main'));
 app.use(require('./routes/users'));
 app.use(require('./routes/sensors'));
 
