@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <h1 class="navbar-brand col-sm-4 col-md-4 mr-0" >Z-Wave Home Automation Project</h1>
+        <ul class="navbar-nav px-4">
+            <li class="nav-item text-nowrap">
+                <div class="container-logout">
+                    <button onclick="popUp()" type="button" class="btn btn-block btn-danger" id="logout">Logout</button>
+                    <script>
+                        function popUp() {
+                            if(window.confirm("Presiona Aceptar para salir a la ventana de inicio de sesión o Cancelar para mantenerte")){
+                                window.location = "users/signin";
+                                die();
+                            }else{
+                                die();
+                            }
+                        }
+                    </script>
+                </div>
+            </li>
+        </ul>
+</nav>
