@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <title>Main Page</title>
         <!--Font Awesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <!--Boostrap4-->
@@ -9,68 +11,19 @@
         <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
         <!--CSS-->
         <link rel="stylesheet" href="css/estilos.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Main Page">
-        <meta name="author" content="Danelo">
-        <title>Main Page</title>
     </head>
-        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <h1 class="navbar-brand col-sm-3 col-md-3 mr-0" >Home Automation Project</h1>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <div class="container-logout">
-                    <input type="button" value="Logout">
-                </div>
-            </li>
-        </ul>
-        </nav>
-
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-3 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <span data-feather="smartphone"></span>
-                        Sensores
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <span data-feather="activity"></span>
-                        Monitorización
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <span data-feather="users"></span>
-                        Usuarios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="settings"></span>
-                            Configuración
-                        </a>
-                    </li>
-                    </ul>
-                </div>
-                </nav>
-            </div>
-        </div>     
-
-        
-        <script>
-        feather.replace()
-        </script>
     <body>
+        {{> navigation}}
+        {{> side }}
         <main class="container p-5">
-            
-            {{{ body }}}
-            
+            <div class="maincontainer">
+                {{{body}}} 
+            </div>
         </main>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         
     </body>     
 </html>
