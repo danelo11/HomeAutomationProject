@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light indigo">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <div class="tab">
+      <button class="tablinks" onclick="setTab(event, 'Reiniciar Sistema')">Reiniciar Sistema</button>
+      <button class="tablinks" onclick="setTab(event, 'Apagar Sistema')">Apagar Sistema</button>
+    </div>
+  </div>
+</nav><br>
+
+<script>
+  function setTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+  
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}  
+</script>
+
+<div id="Reiniciar Sistema" class="tabcontent row-md-7"
+  style="position: relative; left: 16px; border-radius: 1px; border-color: rgb(194, 194, 194); border-style: solid;;">
+  <h5>Para reiniciar el sistema presione el boton que aparece a continuación</h5><br>
+  <button style="position: relative; left: 16px; bottom: 16px; width: 200px;" type="button"
+    class="btn btn-block btn-info" id="reiniciar" onclick="popUp()">Reiniciar</button>
+  <script>
+    function popUp() {
+      if (window.confirm("¿Está seguro de que desea reiniciar el sistema?")) {
+        window.location = "users/signin";
+        die();
+      } else {
+        die();
+      }
+    }
+  </script>
+</div>
+
+<div id="Apagar Sistema" class="tabcontent row-md-7"
+  style="position: relative; left: 16px; border-radius: 1px; border-color: rgb(194, 194, 194); border-style: solid;;">
+  <h5>Presione el boton que aparece a continuación para apagar el sistema</h5><br>
+  <button style="position: relative; left: 16px; bottom: 16px; width: 200px;" type="button"
+    class="btn btn-block btn-danger" id="agagar" onclick="popUp2()">Apagar</button>
+  <script>
+    function popUp2() {
+      if (window.confirm("¿Está seguro de que desea apagar el sistema?")) {
+        window.location = "users/signin";
+        die();
+      } else {
+        die();
+      }
+    }
+  </script>
+</div>
