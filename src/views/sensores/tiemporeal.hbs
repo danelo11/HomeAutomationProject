@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light indigo">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="tab">
+      <button class="tablinks" onclick="switchTab(event, 'Tiempo Real')">Tiempo Real</button>
+    </div>
+  </div>
+</nav><br>
+
+<script>
+  function switchTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }  
+</script>
+
+<div id="Tiempo Real" class="tabcontent">
+  <button style="position: relative; left: 6px; width: 100px;" type="submit" class="btn btn-primary"
+    onclick="location.reload()" name="refresh">Refrescar</button><br>
+  <div class="row" style="display: inline; width: 200px;">
+    {{#each mediciones}}
+    <div class="col-md-5"
+      style=" float:left; border-radius: 1px; border-color: rgb(194, 194, 194); border-style: solid; margin-left: 5px; margin-top: 5px;">
+      <div class="header" style="background-color: rgb(230, 150, 136);" id="nodo">
+        <h3 style="text-align: center;">Sensor {{sensorid}}</h3>
+      </div>
+      <div class="body">
+        <h6 for="tag" style="font-weight: bold;">Tag: <label
+            style="font-weight: normal;">{{tag}}</label></h6>
+        <h6 for="value" style="font-weight: bold;">Value: <label
+            style="font-weight: normal;">{{newvalue}}</label></h6>
+        <h6 for="fecha" style="font-weight: bold;">Fecha: <label style="font-weight: normal;">{{fecha}}</label>
+        </h6>
+      </div><br>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
