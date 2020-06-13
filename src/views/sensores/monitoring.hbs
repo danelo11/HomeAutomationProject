@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-light indigo">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <!---<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="tab">
+      <button class="tablinks" onclick="cambiarTab(event, 'Histórico')">Histórico</button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function cambiarTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+  
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}  
+</script>
+
+
+<div class="tabcontent col-md-15" id="Histórico">
+  <div class="header">
+    <form id="medicionesform" class="form-inline" action="/moni/filters" method="GET">
+      <div class="form-group row mr-sm-4">
+        <label style="position: relative; left: 16px;" class="mr-sm-4" for="selectsensor">Sensor</label>
+        <select class="mr-sm-3" style="width: 200px;" class="form-control" name="selsensor" id="sensorselect">
+          <option>todos</option>
+          {{#each info}}          
+          <option>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group row mr-sm-4">
+        <label class="mr-sm-3" for="selectsensor">Tag</label>
+        <select class="mr-sm-3" style="width: 200px;" class="form-control" name="seltag" id="tagselect">
+          <option>todos</option>
+          {{#each etiquetas}}
+          <option>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group row mr-sm-4">
+        <label class="mr-sm-3" for="selectsensor">Ordenar por</label>
+        <select class="mr-sm-3" style="width: 200px;" class="form-control" name="ordenarpor" id="fechaselect">
+          <option>recientes</option>
+          <option>antiguos</option>
+        </select>
+      </div>
+      <div class="form-group row-mr-sm-4">
+        <button id="getMeasurements" style="width: 100px;" type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+      <div class="form-group col-md-4">
+        <label style="position: relative; top: 10px; right: 14px;" class="mr-sr-3" for="fecha">Fecha&nbsp;</label>
+        <input style="width: 100px; position: relative; top: 10px; right: 14px;" class="mr-sr-3"type="text" name="selfecha" id="dateselect" placeholder="yyyy-mm-dd">
+      </div>
+    </form>
+  </div><br>
+  <div id="getContTabla" class="body">
+      <table  id="tabla" class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Sensor</th>
+            <th scope="col">Tag</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+  </div>
+</div>
+<script src="js/moni.js"></script>
