@@ -30,4 +30,3 @@ passport.use('local',new Strategia({
       done(err, user);
     });
   });
-

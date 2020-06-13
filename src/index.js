@@ -5,7 +5,7 @@ const handlebars = require('express-handlebars');
 const methods = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
-const flash = require('connect-flash');
+const morgan = require('morgan');
 
 //Initialitations
 const app = express();
@@ -25,27 +25,24 @@ app.set('view engine', '.hbs');
 
 //Middlewares
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 app.use(methods('_methods')); // para poder recibir sentencias extra además de get y post
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+app.use(morgan('dev'));
 
 //Global variables
-app.use(function(request, response, next){
-    response.locals.success_msg=request.flash('sucess_msg');
-    response.locals.error_msg=request.flash('error_msg')
-    next();
-})
-
 
 //Routes
 app.use(require('./routes/users'));
 app.use(require('./routes/sensors'));
+
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
