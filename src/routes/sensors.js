@@ -6,6 +6,7 @@ const {renderMainPage,
     renderMoni, 
     renderSensores, 
     showMeasurements,
+    deleteMeasurement, 
 } = require('../controllers/controlador');
 const {isAuthenticated} = require('../auxiliary/authenticated');
 
@@ -19,6 +20,8 @@ router.get('/tiemporeal', renderReal);
 router.get('/moni', renderMoni);
 
 router.get('/moni/filters', showMeasurements);
+
+router.delete('/moni/delete:id', deleteMeasurement);
 
 router.get('/config', renderConfig);
 
