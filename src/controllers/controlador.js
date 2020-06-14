@@ -18,18 +18,23 @@ controlador.renderReal = async function (request, response) {
     var compid = "";
     var comptag = "";
     for (var i = 0; i < recover.length; i++) {
+        var datetostr = new Date(recover[i]['fecha']);
+        recover[i]['fecha'] = datetostr;
+        const ff = new Date()
         if (compid.length == 0 && comptag.length == 0) {
             compid = recover[i]['sensorid'];
             comptag = recover[i]['tag'];
-            console.log(recover[i]['fecha'])
+            recover[i]['fecha'] = datetostr;
             mediciones.push(recover[i]);
         }
         if (compid == recover[i]['sensorid'] && comptag == recover[i]['tag']) {
         } else {
             compid = recover[i]['sensorid'];
             comptag = recover[i]['tag'];
+            recover[i]['fecha'] = datetostr;
             mediciones.push(recover[i]);
         }
+        console.log(recover[i]['fecha'])
     }
     response.render('sensores/tiemporeal', { mediciones });
 
@@ -74,16 +79,19 @@ controlador.renderMoni = async function (request, response) {
 controlador.showMeasurements = async function (request, response) {
     const { selsensor, seltag, ordenarpor, selfecha } = request.query; //variables typeadas por el usuario
     const recid = await Sensor.find({ product: selsensor }, { _id: 0, id: 1 });
-    const recovery = await Measurement.find({}).sort({ sensorid: 1, tag: 1, fecha: -1});
+    var recovery = [];
+    const recovery1 = await Measurement.find({}).sort({ sensorid: 1, tag: 1, fecha: -1});
+    const recovery2 = await Measurement.find({}).sort({ sensorid: 1, tag: 1, fecha: 1});
     if(ordenarpor == 'antiguos'){
-        const recovery = await Measurement.find({}).sort({ sensorid: 1, tag: 1, fecha: 1});
+        recovery = recovery2;
+    }else{
+        recovery = recovery1;
     }
     var senid = 0;
     for (var h = 0; h < recid.length; h++) {
         senid = recid[h]['id'];
     }
     var fechadefinitiva = new Date(selfecha);
-    console.log(fechadefinitiva);
     const solofecha = fechadefinitiva.getFullYear()+"-"+(fechadefinitiva.getMonth()+1)+"-"+fechadefinitiva.getDate();
     var resultado = [];
     for (var i = 0; i < recovery.length; i++) {
@@ -91,7 +99,9 @@ controlador.showMeasurements = async function (request, response) {
         var valetag = 0;
         var valefecha = 0;
         const fechabd = recovery[i]['fecha'].getFullYear()+"-"+(recovery[i]['fecha'].getMonth()+1)+"-"+recovery[i]['fecha'].getDate();
-        
+        var fecha = new Date(recovery[i]['fecha']);
+        recovery[i]['fecha'] = fecha;
+        fecha.setHours(fecha.getHours()+2);
         if (selsensor == "todos") {
             valesen = 1;
         }
@@ -111,11 +121,18 @@ controlador.showMeasurements = async function (request, response) {
             valefecha = 1;
         }
         if (valesen == 1 && valetag == 1 && valefecha == 1) {
-            resultado.push(recovery[i])
+            resultado.push(recovery[i]);
         }
     }
     response.send({resultado})
  
+}
+
+controlador.deleteMeasurement = async function(request, response){
+    const objeto = JSON.parse(JSON.stringify(request.body));
+    const identificativo = objeto['_id'];
+    await Measurement.findByIdAndDelete({_id: identificativo});
+    response.send({identificativo});
 }
 
 controlador.renderConfig = function (request, response) {
