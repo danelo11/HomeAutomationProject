@@ -20,7 +20,6 @@ controlador.renderReal = async function (request, response) {
     for (var i = 0; i < recover.length; i++) {
         var datetostr = new Date(recover[i]['fecha']);
         recover[i]['fecha'] = datetostr;
-        const ff = new Date()
         if (compid.length == 0 && comptag.length == 0) {
             compid = recover[i]['sensorid'];
             comptag = recover[i]['tag'];
@@ -101,7 +100,9 @@ controlador.showMeasurements = async function (request, response) {
         const fechabd = recovery[i]['fecha'].getFullYear()+"-"+(recovery[i]['fecha'].getMonth()+1)+"-"+recovery[i]['fecha'].getDate();
         var fecha = new Date(recovery[i]['fecha']);
         recovery[i]['fecha'] = fecha;
-        fecha.setHours(fecha.getHours()+2);
+        const puente = new Date().getTimezoneOffset();
+        const offset = (puente * -1) /60;
+        fecha.setHours(fecha.getHours()+offset);
         if (selsensor == "todos") {
             valesen = 1;
         }

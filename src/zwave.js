@@ -69,6 +69,7 @@ zwave.on('value changed', changes= async function(nodeid, comclass, value) {
         const tag = value['label'];
         const oldvalue = Number(sensors[nodeid]['classes'][comclass][value.index]['value']);
         const newvalue = Number(value['value']);
+        const fecha = new Date();
         const measurement = new ZwaveMeasurement({sensorid, tag, oldvalue, newvalue, fecha});
         medidas.push(measurement);
         console.log(measurement);
