@@ -1,5 +1,5 @@
 const controlador = {};
-const {listado, measurement} = require('../zwave');
+//const {listado, measurement} = require('../zwave');
 const Sensor = require('../models/zwavesensor');
 const Measurement = require('../models/measurement');
 

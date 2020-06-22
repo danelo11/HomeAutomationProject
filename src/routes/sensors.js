@@ -8,7 +8,7 @@ const {renderMainPage,
     showMeasurements,
     deleteMeasurement, 
 } = require('../controllers/controlador');
-const {isAuthenticated} = require('../auxiliary/authenticated');
+//const {isAuthenticated} = require('../auxiliary/authenticated');
 
 //Routes
 router.get('/index', renderMainPage);
