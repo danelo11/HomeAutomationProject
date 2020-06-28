@@ -18,7 +18,7 @@ var zwave = new OpenZwave({
 });
 
 zwavedriverpaths = {
-    "linux": '/dev/ttyUSB0',
+    "linux": '/dev/ttyACM0',
     "win32": '\\\\.\\COM3'
 }
 
