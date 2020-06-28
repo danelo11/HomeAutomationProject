@@ -14,7 +14,6 @@ $( document ).ready(function() {
             ordenarpor: $("#fechaselect").val(),
             selfecha: $("#dateselect").val()
         }
-        console.log(formData);
 
         // DO GET
         $.ajax({
@@ -23,7 +22,6 @@ $( document ).ready(function() {
             data : formData,
             dataType : 'json',
             success: function(resultado){
-                console.log(resultado);
                 let tbody = $('tbody');
                 tbody.html('');
                 resultado.resultado.forEach(medicion => {
@@ -34,7 +32,8 @@ $( document ).ready(function() {
                         <td class="Value">${medicion.newvalue}</td>
                         <td class="Fecha">${medicion.fecha}</td>
                         <td>
-                            <button name"_id" id="${medicion._id}" style="text center; justify-content: center; cursor: pointer;" type="submit" class="nav-link"><i class="fas fa-trash"></i></button>
+                            <button name"_id" id="${medicion._id}" style="text center; justify-content: center; cursor: pointer;" 
+                            type="submit" class="nav-link"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                     `)
@@ -59,7 +58,6 @@ $( document ).ready(function() {
                 row.find('td').fadeOut(1000,function(){
                     row.remove();
                 });
-                console.log(response['identificativo'])
                 
             }
         });

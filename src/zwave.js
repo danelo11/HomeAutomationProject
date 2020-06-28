@@ -112,9 +112,9 @@ zwave.on('node ready', async function(nodeid, nodeinfo){
             console.log("El sensor: %d ya esta registrado", nodeid);
         }
     })
-    for (var i=0;i<sensors.length;i++){
+    /*for (var i=0;i<sensors.length;i++){
         console.log(sensors[i]);
-    }
+    }*/
     for (comclass in sensors[nodeid]['classes']) {
         console.log('node%d: class %d', nodeid, comclass);
         switch (comclass) {      
@@ -139,7 +139,7 @@ zwave.on('node ready', async function(nodeid, nodeinfo){
         identis.push(ident)
         if(todos[r]['classes'] == {}){
             const aa = todos[r]['id'];
-            console.log(aa);
+            //console.log(aa);
             identis.push(aa);
         }
     }
@@ -149,7 +149,7 @@ zwave.on('node ready', async function(nodeid, nodeinfo){
             const idunicotag = await ZwaveSensor.find({id: ideliminiar}, {_id: 1});
             for (var t=0;t<idunicotag.length;t++){
                 idunico = idunicotag[t]['_id']
-                console.log(idunico)
+                //console.log(idunico)
                 console.log("Deleting sensor with id: %d", ideliminiar);
                 await ZwaveSensor.findByIdAndDelete({_id: idunico});
             }
