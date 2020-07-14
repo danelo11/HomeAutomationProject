@@ -7,6 +7,7 @@ const {renderMainPage,
     renderSensores, 
     showMeasurements,
     deleteMeasurement, 
+    vaciar
 } = require('../controllers/controlador');
 //const {isAuthenticated} = require('../auxiliary/authenticated');
 
@@ -22,6 +23,8 @@ router.get('/moni', renderMoni);
 router.get('/moni/filters', showMeasurements);
 
 router.delete('/moni/delete:id', deleteMeasurement);
+
+router.delete('/moni/vaciar', vaciar);
 
 router.get('/config', renderConfig);
 

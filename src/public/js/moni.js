@@ -48,7 +48,6 @@ $( document ).ready(function() {
         var json = {
             "_id": id
         }
-        console.log(id)
         $.ajax({
             url: '/moni/delete'+id,
             method: 'DELETE',
@@ -62,4 +61,25 @@ $( document ).ready(function() {
             }
         });
     });
+
+    $("#vaciado").on('click', function(){
+        var valusuarios=$("#usuarios").is(":checked");
+        var valsensores=$("#sensores").is(":checked");
+        var valmediciones=$("#mediciones").is(":checked");
+        var jsonboleans = {
+            "usuarios": valusuarios,
+            "sensores": valsensores,
+            "mediciones": valmediciones
+        }
+        if (window.confirm("Se eliminarán las colecciones seleccionadas")) {
+            $.ajax({
+                url: '/moni/vaciar',
+                method: 'DELETE',
+                data : jsonboleans,
+                success: function(response) {
+                    console.log(JSON.parse(JSON.stringify(response)));
+                }
+            });
+        }
+    })
 })

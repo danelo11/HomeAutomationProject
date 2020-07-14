@@ -1,7 +1,8 @@
 const controlador = {};
-//const {listado, measurement} = require('../zwave');
+const {listado, measurement} = require('../zwave');
 const Sensor = require('../models/zwavesensor');
 const Measurement = require('../models/measurement');
+const Users = require('../models/usuario');
 
 controlador.renderMainPage = function (request, response) {
     response.render('sensores/index');
@@ -33,7 +34,7 @@ controlador.renderReal = async function (request, response) {
             recover[i]['fecha'] = datetostr;
             mediciones.push(recover[i]);
         }
-        console.log(recover[i]['fecha'])
+        //console.log(recover[i]['fecha'])
     }
     response.render('sensores/tiemporeal', { mediciones });
 
@@ -134,6 +135,34 @@ controlador.deleteMeasurement = async function(request, response){
     const identificativo = objeto['_id'];
     await Measurement.findByIdAndDelete({_id: identificativo});
     response.send({identificativo});
+}
+
+controlador.vaciar = async function(request, response){
+    const objeto = JSON.parse(JSON.stringify(request.body));
+    console.log(objeto);
+    var completed = {};
+    if(objeto['usuarios'] == 'true'){
+        s_obj = new String("Usuarios eliminados");
+        completed['resusu'] = s_obj;
+        await Users.deleteMany();
+    }
+    if(objeto['sensores'] == 'true'){
+        s_obj1 = new String("Sensores eliminados");
+        completed['ressen'] = s_obj1;
+        await Sensor.deleteMany({}, function(errSE){
+            console.log(errSE);
+        })
+    }
+    if(objeto['mediciones'] == 'true'){
+        s_obj2 = new String("Mediciones eliminadas");
+        completed['resmed'] = s_obj2;
+        await Measurement.deleteMany({}, function(errME){
+            console.log(errME);
+        })
+    }
+    response.send(completed);
+    
+    
 }
 
 controlador.renderConfig = function (request, response) {
