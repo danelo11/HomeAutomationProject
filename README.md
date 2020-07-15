@@ -1,12 +1,12 @@
-# Zwave&BLEHomeAutomationProject
+# Zwave&BLEHomeAutomationProject <img width=23 heigth=23 src="src/public/images/logo.png">
 ## Contenidos
 - [Descripción](#descripción)
-  - [Tecnologías empleadas](-tecnologías-empleadas)
+  - [Tecnologías empleadas](#tecnologías-empleadas)
 - [Instalación](#instalación)
-  - [Prerequisitos](-prerequisitos)
-  - [Clonar repositorio](-clonar-repositorio)
-  - [Instalar las dependencias necesarias](-instalar-las-dependencias-necesarias)
-  - [Ejecutar la aplicación](-ejecutar-la-aplicación)
+  - [Prerequisitos](#prerequisitos)
+  - [Clonar repositorio](#clonar-repositorio)
+  - [Instalar las dependencias necesarias](#instalar-las-dependencias-necesarias)
+  - [Ejecutar la aplicación](#ejecutar-la-aplicación)
 - [Contribuidores](#contribuidores)
 - [Agradecimientos](#agradecimientos)
 
@@ -42,12 +42,10 @@ Node.js, MongoDB, OpenZWave, Bluetooth.
    - OpenZWave
 
     - Ubuntu, Raspbian, Fedora
-
-
+      - Hay dos formas de hacerlo tal y como se muestr en el siguiente [enlace](https://github.com/OpenZWave/node-openzwave-shared/blob/master/README-raspbian.md)
+      > Nota: se recomienda seguir el segundo método para versiones de procesador ARMv7 o superior.
     - Windows
-    Para instalar OpenZWave en Windows, al instalar el módulo correspondiente a través
-    del gestor de paquetes de Node.js, este se descargará, compilará e instalará
-    automáticamente.
+      - Para instalar OpenZWave en Windows, al instalar el módulo correspondiente a través del gestor de paquetes de Node.js, este se descargará, compilará e instalará automáticamente.
 
 2. Clonar el repositorio
   ```
