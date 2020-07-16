@@ -18,44 +18,45 @@ Se trata de un projecto capaz de captar, gestionar y almacenar datos que provien
 Node.js, MongoDB, OpenZWave, Bluetooth.
 
 ## Instalación
-1. Prerequisitos
-   - Node.js
-   - npm
-   - MongoDB
-   - Bluetooth 
-    - Ubuntu, Raspbian, Fedora
-    
+
+### Prerequisitos
+- Node.js
+- npm
+- MongoDB
+- Bluetooth 
+
+  - Ubuntu, Raspbian, Fedora
     ```
     sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev
     ```
     > Nota: Asegurarse de que node está añadido al PATH.
-
-    - Windows
-      - Instalar desde una consola con permisos de administrador:
+  - Windows
+    - Instalar desde una consola con permisos de administrador:
+    ```
+    npm install --global --production windows-build-tools
+    ```
+    - Usar un driver compatible con [Bluetooth 4.0](https://github.com/abandonware/node-bluetooth-hci-socket#windows).
+    - Para cambiar de driver usar la herramienta [Zadig tool](https://zadig.akeo.ie/)
       
-      ```
-      npm install --global --production windows-build-tools
-      ```
-      - Usar un driver compatible con [Bluetooth 4.0](https://github.com/abandonware/node-bluetooth-hci-socket#windows).
-      - Para cambiar de driver usar la herramienta [Zadig tool](https://zadig.akeo.ie/)
-      
-   - OpenZWave
+- OpenZWave
 
-    - Ubuntu, Raspbian, Fedora
-      - Hay dos formas de hacerlo tal y como se muestr en el siguiente [enlace](https://github.com/OpenZWave/node-openzwave-shared/blob/master/README-raspbian.md)
-      > Nota: se recomienda seguir el segundo método para versiones de procesador ARMv7 o superior.
-    - Windows
-      - Para instalar OpenZWave en Windows, al instalar el módulo correspondiente a través del gestor de paquetes de Node.js, este se descargará, compilará e instalará automáticamente.
+  - Ubuntu, Raspbian, Fedora
+    - Hay dos formas de hacerlo tal y como se muestr en el siguiente [enlace](https://github.com/OpenZWave/node-openzwave-shared/blob/master/README-raspbian.md)
+    > Nota: se recomienda seguir el segundo método para versiones de procesador ARMv7 o superior.
+  - Windows
+    - Para instalar OpenZWave en Windows, al instalar el módulo correspondiente a través del gestor de paquetes de Node.js, este se descargará, compilará e instalará automáticamente.
 
-2. Clonar el repositorio
+### Clonar repositorio
   ```
   git clone https://github.com/danelo11/HomeAutomationProject.git
   ```
-3. Instalar las dependencias necesarias
+  
+### Instalar las dependencias necesarias
   ```
   npm install
   ```
-4. Ejecutar la aplicación
+  
+### Ejecutar la aplicación
   Para ejecutar la aplicación junto con el programa principal *zwave.js* para la captación de mediciones de los sensores Z-Wave:
   ```
   npm run dev
