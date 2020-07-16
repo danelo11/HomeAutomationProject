@@ -43,7 +43,7 @@ Node.js, MongoDB, OpenZWave, Bluetooth.
   - Ubuntu, Raspbian, Fedora
     - Hay dos formas de hacerlo tal y como se muestr en el siguiente [enlace](https://github.com/OpenZWave/node-openzwave-shared/blob/master/README-raspbian.md)
     
-    > Nota: se recomienda seguir el segundo método para versiones de procesador ARMv7 o superior.
+     > Nota: se recomienda seguir el segundo método para versiones de procesador ARMv7 o superior.
   - Windows
     - Para instalar OpenZWave en Windows, al instalar el módulo correspondiente a través del gestor de paquetes de Node.js, este se descargará, compilará e instalará automáticamente.
 
